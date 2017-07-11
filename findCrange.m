@@ -14,6 +14,14 @@ end
 lower_max_c = 10^(-7);
 max_c = 10^7;
 
+min_allowable_diff = .1;
+max_c_fit = accDist(max_c);
+if max_c_fit > min_allowable_diff
+    error(...
+        'could not fit model, off by %3.2f, with max cost of %3.2f', ...
+        max_c_fit, max_c)
+end
+
 function calc_c = calcC(min_c, max_c) 
     if max_c < 10 * min_c
         calc_c = (min_c + max_c)/2;
