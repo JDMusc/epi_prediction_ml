@@ -18,8 +18,8 @@ min_allowable_diff = .1;
 max_c_fit = accDist(max_c);
 if max_c_fit > min_allowable_diff
     error(...
-        'could not fit model, off by %3.2f, with max cost of %3.2f', ...
-        max_c_fit, max_c)
+        'could not fit model, off by %3.2f (greater than allowed of %3.2f), even when using max cost value/least regularization of %3.2f', ...
+        max_c_fit, min_allowable_diff, max_c)
 end
 
 function calc_c = calcC(min_c, max_c) 
